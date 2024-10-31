@@ -72,8 +72,8 @@ public abstract class Character {
 
     public void attack(Character target) throws InterruptedException {
         while (getHealth() > 0 && target.getHealth() > 0) {
-            int damageOfPaladin = getPower();
-            target.defend(damageOfPaladin);
+            int damage = getPower();
+            target.defend(damage);
             Thread.sleep(getAttackSpeed() * 10L);
         }
     }
