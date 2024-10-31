@@ -1,5 +1,7 @@
 package characters;
 
+import monsters.Monster;
+
 public abstract class Character {
     private String name;
     private int health;
@@ -50,7 +52,7 @@ public abstract class Character {
     }
 
     public int getAttackSpeed() {
-     return attackSpeed;
+        return attackSpeed;
     }
 
     public void setAttackSpeed(int attackSpeed) {
@@ -76,6 +78,15 @@ public abstract class Character {
             target.defend(damage);
             Thread.sleep(getAttackSpeed() * 10L);
         }
+    }
+
+    public void attackMonster(Monster target) throws InterruptedException {
+
+        int damage = getPower();
+        target.defend(damage);
+        System.out.println(getName() + " has attacked " + target.getName() + "! Health: " + getHealth());
+        Thread.sleep(getAttackSpeed() * 10L);
+
     }
 
     public void defend(int attackPower) {

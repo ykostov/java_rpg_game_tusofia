@@ -48,9 +48,16 @@ public abstract class Monster {
     }
 
     public void attack(Character target) throws InterruptedException {
-        while (getHealth() > 0 && target.getHealth() > 0) {
-            int damage = getPower();
-            target.defend(damage);
-        }
+
+        int damage = getPower();
+        target.defend(damage);
+        System.out.println(getName() + "has attacked! Health: " + getHealth());
+
+    }
+
+    public void defend(int attackPower) {
+        health = getHealth();
+        setHealth(health - attackPower);
+        System.out.println("health of monster: " + getHealth());
     }
 }
